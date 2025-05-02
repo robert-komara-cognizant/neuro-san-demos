@@ -48,3 +48,20 @@ addopts = "--verbose --cov=. --cov-report=term-missing --no-cov-on-fail"
 
 [tool.coverage.run]
 omit = ["tests/*", "*/venv/*"]
+
+[tool.interrogate]
+ignore-init-method = true
+ignore-init-module = true
+ignore-magic = true
+ignore-semiprivate = true
+ignore-private = true
+ignore-property-decorators = true
+ignore-module = false
+ignore-nested-functions = false
+ignore-nested-classes = true
+ignore-setters = true
+fail-under = 90
+exclude = ["setup.py", "docs", "build", "tests", "venv", "*.egg-info"]
+verbose = 1
+quiet = false
+color = true

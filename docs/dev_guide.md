@@ -7,9 +7,10 @@ This repository includes a Makefile with several useful commands to streamline d
 - `make venv` - Creates a virtual environment in the `./venv` directory if it doesn't already exist
 - `make install` - Creates the virtual environment (if needed) and installs all dependencies including build dependencies
 - `make activate` - Checks if the virtual environment exists and either provides activation instructions (if it exists) or suggests running `make install` (if it doesn't)
-- `make lint` - Runs code formatting and linting tools (isort, black, flake8) on the source code
+- `make lint` - Runs code formatting and linting tools (isort, black, flake8, pylint) on the source code
+- `make docstring-check` - Checks docstring coverage using interrogate tool
 - `make lint-tests` - Runs code formatting and linting tools on the test code
-- `make test` - Runs lint and lint-tests, then executes the tests with pytest and generates coverage reports
+- `make test` - Runs lint, docstring-check, and lint-tests, then executes the tests with pytest and generates coverage reports
 
 These Makefile commands provide a convenient alternative to the manual steps described in the Installation section for macOS users. Windows users should follow the manual installation instructions instead.
 
@@ -17,7 +18,17 @@ These Makefile commands provide a convenient alternative to the manual steps des
 
 This project uses `pyproject.toml` for configuration of various Python development tools. This modern approach centralizes tool configurations in a single file instead of using separate configuration files for each tool.
 
-These configurations are automatically applied when running the relevant Makefile commands (`make lint`, `make lint-tests`, `make test`).
+The project configuration includes settings for:
+
+- `isort` - For consistent import sorting
+- `flake8` - For enforcing style guide
+- `black` - For consistent code formatting
+- `pylint` - For code quality checks
+- `interrogate` - For docstring coverage verification (min. 90% coverage)
+
+The interrogate configuration enforces comprehensive docstrings throughout the codebase, with settings to ignore certain method types (like magic methods, private methods, properties) while ensuring all modules, classes, and public functions are properly documented.
+
+These configurations are automatically applied when running the relevant Makefile commands (`make lint`, `make docstring-check`, `make lint-tests`, `make test`).
 
 ## Contribution Workflow
 
@@ -64,7 +75,11 @@ This section outlines the recommended workflow for contributing to this project.
 
 3. **Follow code standards**:
    - Keep line length to 119 characters
-   - Add docstrings to functions and classes
+   - Add comprehensive docstrings to all modules, classes, and functions
+     - Every module should have a top-level docstring describing its purpose
+     - Classes should have docstrings explaining their functionality
+     - Public methods and functions should document parameters and return values
+     - Maintain at least 90% docstring coverage (checked by interrogate)
    - Include unit tests for new functionality
 
 4. **Run linting and tests locally**:

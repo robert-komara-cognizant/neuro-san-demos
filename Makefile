@@ -39,6 +39,17 @@ lint: ## Run code formatting and linting tools on source
 	flake8 run.py coded_tools/
 	pylint run.py coded_tools/
 
+docstring-check: ## Check docstring coverage with interrogate
+	@if [ "$$(which python | grep -c "./venv")" -eq 0 ]; then \
+		echo ""; \
+		echo "Error: Docstring checking must be run using the ./venv Python environment"; \
+		echo "Please activate the correct environment with:"; \
+		echo "  source venv/bin/activate"; \
+		echo ""; \
+		exit 1; \
+	fi
+	interrogate -v coded_tools/ run.py
+
 lint-tests: ## Run code formatting and linting tools on tests
 	@if [ "$$(which python | grep -c "./venv")" -eq 0 ]; then \
 		echo ""; \
@@ -53,10 +64,10 @@ lint-tests: ## Run code formatting and linting tools on tests
 	flake8 tests/
 	pylint tests/
 
-test: lint lint-tests ## Run tests with coverage
+test: lint docstring-check lint-tests ## Run tests with coverage
 	python -m pytest tests/ -v --cov=coded_tools,run.py
 
-.PHONY: help venv install activate lint lint-tests test
+.PHONY: help venv install activate lint docstring-check lint-tests test
 .DEFAULT_GOAL := help
 
 help: ## Show this help message and exit
