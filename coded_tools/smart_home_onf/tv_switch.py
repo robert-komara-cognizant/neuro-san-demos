@@ -7,6 +7,13 @@
 # Purchase of a commercial license is mandatory for any use of the
 # neuro-san-demos SDK Software in commercial settings.
 #
+"""
+Module for controlling a TV in a smart home environment.
+
+This module provides the TVSwitch class to manage a television's power status,
+allowing it to be turned on or off through a simple API interface. It tracks
+the current state and provides feedback on state changes.
+"""
 from typing import Any
 from typing import Dict
 from typing import Union
@@ -63,6 +70,18 @@ class TVSwitch(CodedTool):
         return message
 
     def do_it(self, args):
+        """
+        :param args: An argument dictionary containing the parameters.
+                The argument dictionary expects the following keys:
+                    "desired_status": whether the TV should be turned ON or OFF.
+
+        :return:
+            In case of successful execution:
+                A message indicating the status change of the TV.
+            otherwise:
+                An error message in the format:
+                "Error: <error message>"
+        """
         desired_status: str = args.get("desired_status", None)
         # Check if the API was called correctly
         if desired_status is None:

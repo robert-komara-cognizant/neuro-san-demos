@@ -7,6 +7,15 @@
 # Purchase of a commercial license is mandatory for any use of the
 # neuro-san-demos SDK Software in commercial settings.
 #
+"""
+Module for providing URLs to airline policy resources.
+
+This module defines the URLProvider class which serves as a centralized
+repository of links to various airline policy pages including baggage
+information, claims procedures, travel requirements, and other customer
+service resources. It acts as a URL reference system for accessing official
+airline documentation and services.
+"""
 from typing import Any
 from typing import Dict
 from typing import Union

@@ -7,6 +7,13 @@
 # Purchase of a commercial license is mandatory for any use of the
 # neuro-san-demos SDK Software in commercial settings.
 #
+"""
+Module for tracking and managing costs in the local version of Music Nerd Pro.
+
+This module provides accounting functionality through the Accountant class,
+which tracks and updates running costs each time it's called. This version
+is optimized for local deployment of the Music Nerd Pro application.
+"""
 from typing import Any
 from typing import Dict
 from typing import Union
@@ -18,6 +25,16 @@ class Accountant(CodedTool):
     """
     A tool that updates a running cost each time it is called.
     """
+
+    def __init__(self):
+        """
+        Initializes the Accountant tool for local deployment.
+
+        The Accountant tool for local deployment doesn't require any special
+        initialization, but maintains a simple interface for tracking running
+        costs in the locally deployed Music Nerd Pro application.
+        """
+        pass
 
     def invoke(self, args: Dict[str, Any], sly_data: Dict[str, Any]) -> Dict[str, Any]:
         """

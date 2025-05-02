@@ -1,3 +1,13 @@
+"""
+Module for providing URL endpoints to company intranet applications.
+
+This module defines the URLProvider class which centralizes access to various
+internal company application URLs by reading them from environment variables.
+It serves as a dependency for other tools that need to interact with company
+intranet applications like Absence Management, Human Capital Management (HCM),
+Travel and Expense systems, and Global Service Desk (GSD).
+"""
+
 import os
 from typing import Any
 from typing import Dict

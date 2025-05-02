@@ -7,6 +7,13 @@
 # Purchase of a commercial license is mandatory for any use of the
 # neuro-san-demos SDK Software in commercial settings.
 #
+"""
+Module providing base functionality for controlling lights in a smart home environment.
+
+This module defines the LightsSwitch base class, which serves as the foundation
+for specific room lighting controllers. It implements a generic interface for
+turning lights on and off in different areas of a smart home.
+"""
 from typing import Any
 from typing import Dict
 from typing import Union
@@ -22,7 +29,7 @@ class LightsSwitch(CodedTool):
     def __init__(self, lights_name: str):
         """
         Constructs a switch for lights.
-        :param lights_name:
+        :param lights_name: String identifier for the location of the lights (e.g., "Kitchen", "Living room")
         """
         self.lights_name = lights_name
         print(f"... {lights_name} lights switch initialized ...")

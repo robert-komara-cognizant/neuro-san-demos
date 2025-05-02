@@ -7,6 +7,15 @@
 # Purchase of a commercial license is mandatory for any use of the
 # neuro-san-demos SDK Software in commercial settings.
 #
+"""
+Module for extracting text content from airline policy webpages.
+
+This module provides functionality to fetch and extract readable text content
+from airline policy websites. It contains mappings to various official airline
+policy pages and uses web scraping techniques to retrieve information about
+baggage policies, travel restrictions, special items, and other airline-related
+content that can be used to answer customer inquiries.
+"""
 from typing import Any
 from typing import Dict
 from typing import Union

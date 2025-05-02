@@ -1,3 +1,12 @@
+"""
+Module for checking employee leave balance information from the company intranet.
+
+This module provides the CheckLeaveBalancesTool class that interfaces with the
+company's absence management system to retrieve current leave entitlement balances
+for employees. It handles communication with the backend absence management system
+and formats the data for easy consumption by agent interfaces.
+"""
+
 from typing import Any
 from typing import Dict
 from typing import Union

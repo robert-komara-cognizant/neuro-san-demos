@@ -7,6 +7,15 @@
 # Purchase of a commercial license is mandatory for any use of the
 # neuro-san-demos SDK Software in commercial settings.
 #
+"""
+Module for providing high-level API access to Salesforce Agentforce.
+
+This module implements a coded tool interface to interact with Salesforce
+Agentforce virtual agents. It includes functionality for handling conversations,
+maintaining session state, and providing mock responses for testing. The module
+serves as a higher-level abstraction over the AgentforceAdapter, making it
+easier to integrate Agentforce capabilities into agent-based applications.
+"""
 import json
 from typing import Any
 from typing import Dict
@@ -38,12 +47,27 @@ MOCK_RESPONSE_2 = {
 class AgentforceAPI(CodedTool):
     """
     A tool to interact with Agentforce agents using the Agentforce API.
+
+    This class provides a high-level interface to communicate with Salesforce
+    Agentforce virtual agents. It handles session management, message formatting,
+    and response parsing. The tool manages chat sessions with Agentforce, allowing
+    stateful conversations across multiple invocations by storing session information
+    in the sly_data dictionary.
+
     Example usage: See tests/coded_tools/agentforce/test_agentforce_api.py
     """
 
     def __init__(self):
         """
         Constructs an AgentforceAPI object.
+
+        Initializes the class by creating an instance of AgentforceAdapter
+        that will be used to interact with the Agentforce API. The adapter
+        automatically reads environment variables for configuration.
+
+        If AGENTFORCE_CLIENT_ID and AGENTFORCE_CLIENT_SECRET environment variables
+        are not set, the adapter will operate in mock mode, returning predefined
+        responses for testing purposes.
         """
         # Construct an AgentforceAdapter object using environment variables
         self.agentforce = AgentforceAdapter()

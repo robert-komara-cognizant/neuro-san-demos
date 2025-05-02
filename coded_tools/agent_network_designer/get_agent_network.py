@@ -23,6 +23,12 @@ class GetAgentNetwork(CodedTool):
     """
 
     def __init__(self):
+        """
+        Initializes the GetAgentNetwork tool.
+
+        The agents attribute is initially set to None and will be populated
+        during invoke() with the agent network data retrieved from sly_data.
+        """
         self.agents = None
 
     def invoke(self, args: Dict[str, Any], sly_data: Dict[str, Any]) -> Union[Dict[str, Any], str]:

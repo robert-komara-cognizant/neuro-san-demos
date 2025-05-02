@@ -140,6 +140,12 @@ LEAF_NODE_AGENT_TEMPLATE = (
 
 
 async def modify_registry(the_agent_network_hocon_str, the_agent_network_name):
+    """
+    Asynchronously writes the agent network hocon to a file and updates the manifest.hocon file.
+
+    :param the_agent_network_hocon_str: The hocon configuration string for the agent network
+    :param the_agent_network_name: The name of the agent network to be written to file
+    """
     # Write the agent network file
     file_path = OUTPUT_PATH + the_agent_network_name + ".hocon"
     async with aiofiles.open(file_path, "w") as file:

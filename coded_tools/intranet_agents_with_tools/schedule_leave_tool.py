@@ -1,3 +1,12 @@
+"""
+Module for scheduling employee leave requests through the company intranet.
+
+This module provides the ScheduleLeaveTool class that interfaces with the
+company's absence management system to submit leave requests on behalf of
+employees. It handles the submission process and returns confirmation details
+for successful leave requests.
+"""
+
 from typing import Any
 from typing import Dict
 from typing import Union

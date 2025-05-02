@@ -7,6 +7,14 @@
 # Purchase of a commercial license is mandatory for any use of the
 # neuro-san-demos SDK Software in commercial settings.
 #
+"""
+Module for interacting with the Salesforce Agentforce API.
+
+This module provides the AgentforceAdapter class that simplifies interactions
+with Salesforce's Agentforce system. It handles authentication, session management,
+message exchange, and other low-level API operations, providing a clean interface
+for agent-based applications to communicate with Salesforce services.
+"""
 import json
 import os
 import uuid

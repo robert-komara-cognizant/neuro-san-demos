@@ -7,6 +7,14 @@
 # Purchase of a commercial license is mandatory for any use of the
 # neuro-san-demos SDK Software in commercial settings.
 #
+"""
+Module for tracking and managing costs in the locally deployed, sly-enabled Music Nerd Pro.
+
+This module provides accounting functionality through the AccountantSly class,
+which tracks and updates running costs using the sly_data dictionary in a local
+deployment environment. This version combines local deployment optimization with
+the sly data persistence mechanism for stateful cost tracking.
+"""
 from typing import Any
 from typing import Dict
 from typing import Union
@@ -18,6 +26,17 @@ class AccountantSly(CodedTool):
     """
     A tool that updates a running cost each time it is called.
     """
+
+    def __init__(self):
+        """
+        Initializes the AccountantSly tool for local deployment.
+
+        This tool combines local deployment optimization with sly data persistence,
+        allowing it to maintain running costs without explicit parameter passing and
+        operate efficiently in a local environment. It tracks state between invocations
+        through the sly_data dictionary.
+        """
+        pass
 
     def invoke(self, args: Dict[str, Any], sly_data: Dict[str, Any]) -> Dict[str, Any]:
         """
